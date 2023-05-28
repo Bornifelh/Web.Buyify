@@ -30,6 +30,8 @@
     object-fit:  contain;
 }
 
+
+
 .div-backgroud-catmag{
     position : relative;
     background-color : orange;
@@ -73,4 +75,23 @@
     width: 30px;
     height: 30px;
     margin-top: 0px;
+}
+
+/*Style du panier*/
+.catmag-item-collection-view1 {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap; /* Permet de gérer le nombre d'articles affichés par ligne */
+    justify-content: center;
+    width : 800px;
+    margin-top: 80px;
+    box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.2); /* Effet d'ombre */
+    border-radius: 10px;
+}
+
+.img-item-mag1 {
+    margin: 10px;
+    width: 140px;
+    height: 80px;
+    object-fit: contain;
 }
