@@ -1,0 +1,23 @@
+﻿@page
+@model Web.Buyify.Pages.ArticlesDisponiblesModel
+@{
+}
+<div class="text-center">
+    <h1 class="display-4">Nos produits disponible</h1>
+
+    <div class="text-center">
+        <ul class="article-item-collection-view">
+            @foreach (var articles in Model.Articles)
+            {
+                <div class="articles-item">
+                    <img class="img-item" src="@articles.Img1" />
+                    <p class="articles-name"><b>@articles.Nom</b></p>
+                    <p class="articles-details">@articles.Details</p>
+                    <p class="articles-prix">@articles.Prix XAF</p>
+                    <button class="btn-add-articles">ajouter au panier</button>
+                </div>
+            }
+        </ul>
+    </div>
+
+</div>

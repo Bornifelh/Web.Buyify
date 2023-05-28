@@ -1,0 +1,64 @@
+﻿.carousel-item img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .carousel {
+            height: 100%;
+            box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.2); /* Effet d'ombre */
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 5%;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            /* Remplacez 'chemin/vers/votre-icon.png' par le chemin réel vers votre icône de contrôle */
+            width: 40px;
+            height: 40px;
+        }
+
+        .carousel-control-prev-icon {
+            background-position: center -10px;
+            color: orange;
+        }
+
+        .carousel-control-next-icon {
+            background-position: center -10px;
+            color: orange;
+        }
+
+        .carousel-item {
+            transition: opacity 0.4s ease-in-out;
+        }
+
+        .carousel-item.active {
+            opacity: 1;
+        }
+
+        .carousel-item-next.carousel-item-left,
+        .carousel-item-prev.carousel-item-right,
+        .carousel-item-next.carousel-item-right,
+        .carousel-item-prev.carousel-item-left {
+            transform: translateX(0);
+        }
+
+        .carousel-item-next,
+        .carousel-item-prev {
+            transform: translateX(0);
+        }
+
+        .carousel-item-next,
+        .carousel-item.active.carousel-item-right {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+
+        .carousel-item-prev,
+        .carousel-item.active.carousel-item-left{
+            transform: translateX(-100%);
+            opacity: 0;
+        }

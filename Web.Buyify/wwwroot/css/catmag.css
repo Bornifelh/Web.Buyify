@@ -1,0 +1,76 @@
+﻿.catmag-item-collection-view {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; /* Permet de gérer le nombre d'articles affichés par ligne */
+    justify-content: center;
+    margin-top: 20px;
+    box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.2); /* Effet d'ombre */
+    border-radius : 10px;
+}
+.catmag-item {
+    display: inline-flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    height: 180px;
+    width: 260px;
+    background-color: ghostwhite;
+    box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.2); /* Effet d'ombre */
+}
+
+.img-item-mag {
+    margin: 0px;
+    width: 260px;
+    height: 140px;
+    object-fit:  contain;
+}
+
+.div-backgroud-catmag{
+    position : relative;
+    background-color : orange;
+    height : 190px;
+    width : initial;
+    margin-left : 0px;
+    align-items : center;
+    text-align : center;
+    border-radius : 5px;
+}
+
+
+.btn-search-select {
+    width: auto;
+    height: 40px;
+    background-color: orange;
+    border: none;
+    margin-left: 0px;
+    color : white;
+}
+
+.btn-panier {
+    width: 60px;
+    height: 30px;
+    background: none;
+    border: none;
+    margin-left: 10px;
+    padding : 0px;
+}
+
+
+.option-item{
+    background-color : ghostwhite;
+    color : black;
+    border-radius : 0px;
+}
+.p-panier {
+    margin-top: -8px;
+}
+.img-panier {
+    width: 30px;
+    height: 30px;
+    margin-top: 0px;
+}

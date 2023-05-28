@@ -1,0 +1,143 @@
+﻿body {
+    position: relative;
+    background-color: #fbfbfb;
+    text-align: center;
+}
+.login-title {
+    position: relative;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 60px;
+    font-family: 'a Alloy Ink';
+}
+.login-title-register {
+    position: relative;
+    font-size: 30px;
+    font-family : 'a Alloy Ink';
+    text-align: center;
+    margin-top: 50px;
+}
+
+.article-item-collection-view1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 120px;
+}
+
+.formulaire-login {
+    position: relative;
+    background-color: white;
+    width: 350px;
+    height: 550px;
+    border-radius: 5px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2); /* Effet d'ombre */
+    text-align : center;
+    margin: 10px;
+}
+
+.formulaire-login3 {
+    background : none;
+}
+
+.size-img-login-register{
+    height : 70px;
+    margin-bottom : -40px;
+}
+
+.formulaire-login2 {
+    position: relative;
+    background-color: white;
+    width: 350px;
+    height: 550px;
+    border-radius: 5px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2); /* Effet d'ombre */
+    text-align: center;
+    margin: 10px;
+}
+
+.input-text-form{
+    width : 300px;
+    height : 40px;
+    border-radius : 5px;
+    margin-top : 40px;
+}
+
+/* _button-group.scss:41 */
+.input-group {
+    width: auto;
+}
+
+/* _input-group.scss:7 */
+.input-group {
+    display: inline-flex;
+    width: 300px;
+    margin-top : 20px;
+}
+
+.input-group1 {
+    display: inline-flex;
+    width: 300px;
+    margin-top: 20px;
+}
+
+.input-group2 {
+    display: inline-flex;
+    width: 300px;
+    margin-top: 10px;
+}
+
+.p-text-login{
+    margin : 5px;
+}
+
+.btn {
+    background-color: orange;
+    border: none;
+    cursor: auto;
+    cursor: pointer;
+}
+
+.margin-bottom{
+    margin-inline : 5px;
+}
+
+.oe_login_buttons{
+    width : 350px;
+}
+
+.oe_login_buttons1 {
+    width: 550px;
+    margin-top : -30px;
+}
+
+.lien{
+    text-decoration : none;
+    color : white;
+}
+
+.formulaire-login1 {
+    position: relative;
+    background-color: #ffe4b6;
+    text-align: center;
+    border-radius : 5px;
+    height : 90px;
+    width : 300px;
+}
+
+.color-btn{
+    background-color : red;
+}
+
+.color-btn1 {
+    background : none;
+    color : black;
+}
+
+.fa-eye fa{
+    width : 50px;
+}
+
+.lbl-privacy-register{
+    margin-top : 15px;
+}

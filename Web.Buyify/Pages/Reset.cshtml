@@ -1,0 +1,106 @@
+﻿@page
+@{
+    Layout = "";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Se connecter</title>
+    <!-- Ajoutez vos balises meta, CSS, scripts, etc. spécifiques à la page de connexion ici -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/catmag.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Web.Buyify.styles.css" asp-append-version="true" />
+    <style>
+        .password-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .input-group .invalid-feedback {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            color: red;
+        }
+
+    </style>
+    <script>
+        function togglePassword() {
+            var passwordInput = document.getElementById('password-input');
+            var passwordToggle = document.getElementById('password-toggle');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                passwordToggle.textContent = 'Hide';
+            } else {
+                passwordInput.type = 'password';
+                passwordToggle.textContent = 'Show';
+            }
+        }
+    </script>
+
+
+    <script>
+        var emailInput = document.getElementById('email-input');
+        var invalidFeedback = document.querySelector('.input-group .invalid-feedback');
+
+        emailInput.addEventListener('input', function () {
+            if (emailInput.validity.valid) {
+                invalidFeedback.style.display = 'none';
+            } else {
+                invalidFeedback.style.display = 'block';
+            }
+        });
+    </script>
+
+
+</head>
+<body>
+    <div class="text-center">
+        <div class="article-item-collection-view1">
+            <div class="formulaire-login">
+                <form class="oe_login_form o_odoo_enterprise_sign" role="form" method="post">
+                    <a href="/Index"><img class="size-img-login-register" src="/Images/compte.png" /></a>
+                <h1 class="login-title">Reset password</h1>
+                <div class="input-group1 formulaire-login1">
+                    <p class="p-text-login">Vous n'avez plus accès à votre boutique en ligne Buyify? Vous avez oubliez votre mot de passe? Réinitialisé le en un clic.</p>
+                </div>
+                <div class="input-group">
+                        <input id="email-input" type="email" class="form-control" placeholder="Courriel" required="required" autofocus="autofocus" autocapitalize="off"/>
+                </div>                
+                
+                
+                <div class="input-group">
+                    <div class="clearfix oe_login_buttons text-center gap-1 d-grid mb-1 pt-3">
+                        <button type="submit" class="btn btn-primary">
+                            Réinitialiser
+                        </button>
+                    </div>  
+                </div>
+                
+                <div class="input-group">
+                    <div class="clearfix oe_login_buttons1 text-center gap-1 d-grid mb-1 pt-3">
+                            
+                            <a href="/Index" class="btn btn-primary color-btn">
+                                    Retour à accueil
+                            </a>
+                        
+                    </div>
+                </div>
+                </form>
+            </div>
+                
+        </div>
+
+        
+        
+        <!-- Ajoutez le contenu spécifique de la page de connexion ici -->
+    </div>
+    
+</body>
+</html>
