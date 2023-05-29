@@ -23,8 +23,4 @@
     <None Include="wwwroot\loope.png" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
 </Project>
