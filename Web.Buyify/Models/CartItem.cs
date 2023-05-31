@@ -1,4 +1,4 @@
-﻿namespace Web.Buyify
+﻿namespace Web.Buyify.Models
 {
     public class CartItem
     {

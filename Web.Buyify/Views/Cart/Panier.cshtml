@@ -1,47 +1,42 @@
 ﻿@page
 
-@model List<CartItem>
+@model List<Web.Buyify.Models.CartItem>
 
 @{
-    
+    Layout = "_Layout";
 }
-
-
 
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="utf-8">
-    <title>Panier</title>    
+    <title>Panier</title>
 </head>
 <body>
-  <div class="text-center">
-      <div class="catmag-item-collection-view1">
-          
-          <a href="">
+    <div class="text-center">
+        <div class="catmag-item-collection-view1">
+            <a href="">
                 <img class="img-item-mag1" src="https://fr.infosgabon.com/wp-content/uploads/2014/09/Airtel-Money.jpg" />
-          </a>
+            </a>
             <a href="">
                 <img class="img-item-mag1" src="https://www.impots-et-taxes.com/img/mobicash.JPG" />
             </a>
             <a href="">
                 <img class="img-item-mag1" src="https://www.01net.com/app/uploads/2020/07/MEA-PayPal-768x433.jpg" />
             </a>
-            
             <a href="">
                 <img class="img-item-mag1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/800px-Visa_Inc._logo.svg.png" />
             </a>
         </div>
-  </div>
+    </div>
 
-  <div>
-      <div>
+    <div>
+        <div>
             <img src="https://m.media-amazon.com/images/G/08/cart/empty/kettle-desaturated._CB424694058_.svg" />
-      </div>
-  </div>
+        </div>
+    </div>
 
-  <div>
+    <div>
         <table>
             <thead>
                 <tr>
@@ -80,7 +75,6 @@
         <form asp-controller="Cart" asp-action="ClearCart" method="post">
             <button type="submit">Vider le panier</button>
         </form>
-  </div>
+    </div>
 </body>
-
 </html>

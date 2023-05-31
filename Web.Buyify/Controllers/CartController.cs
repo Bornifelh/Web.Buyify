@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Web.Buyify.Models;
 
 namespace Web.Buyify.Controllers
 {
@@ -11,9 +12,9 @@ namespace Web.Buyify.Controllers
             _cart = new Cart();
         }
 
-        public IActionResult Index()
+        public IActionResult Details()
         {
-            return View(_cart.Items);
+            return View("DetailsProduct", _cart.Items);
         }
 
         public IActionResult AddToCart(int productId, string productName, decimal price, int quantity)
@@ -28,28 +29,28 @@ namespace Web.Buyify.Controllers
 
             _cart.AddItem(item);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Panier");
         }
 
         public IActionResult RemoveFromCart(int productId)
         {
             _cart.RemoveItem(productId);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Panier");
         }
 
         public IActionResult UpdateCartItem(int productId, int quantity)
         {
             _cart.UpdateItemQuantity(productId, quantity);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Panier");
         }
 
         public IActionResult ClearCart()
         {
             _cart.Clear();
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Panier");
         }
     }
 

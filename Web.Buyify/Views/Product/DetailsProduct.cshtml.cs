@@ -1,14 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Web.Buyify.Pages
+namespace Web.Buyify.Views.Product
 {
-    
-    public class PanierModel : PageModel
+    public class DetailsProductModel : PageModel
     {
-        public List<CartItem> CartItems { get; set; }
-
-       
         public void OnGet()
         {
         }

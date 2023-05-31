@@ -13,6 +13,10 @@ namespace Web.Buyify.Controllers
         [HttpPost]
         public IActionResult Subscribe(string email)
         {
+            if (email is null)
+            {
+                throw new ArgumentNullException(nameof(email));
+            }
             // Traitez l'adresse e-mail ici (par exemple, enregistrez-la dans une base de données)
             // et renvoyez une réponse appropriée à l'utilisateur (par exemple, une vue de confirmation).
             // Notez que vous devez ajouter la validation appropriée des données et des mesures de sécurité.

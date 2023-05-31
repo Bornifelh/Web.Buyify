@@ -1,11 +1,11 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";   
+    ViewData["Title"] = "Accueil";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+    <h1 class="display-4">Bienvenue sur Buyify</h1>
 
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
@@ -21,23 +21,24 @@
         </div>
         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only"></span>
+            <span class="sr-only">Previous</span>
         </a>
         <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only"></span>
+            <span class="sr-only">Next</span>
         </a>
     </div>
+
     <h2>Vos magasins</h2>
     <div class="text-center">
-        <div class="div-backgroud-catmag">
+        <div class="div-background-catmag">
             <ul class="catmag-item-collection-view">
-                @foreach(var magasin in Model.CategoryMag)
+                @foreach (var magasin in Model.CategoryMag)
                 {
-                    <div class="catmag-item">
-                        <img class="img-item-mag" src="@magasin.ImgCatMag"/>
+                    <li class="catmag-item">
+                        <img class="img-item-mag" src="@magasin.ImgCatMag" alt="@magasin.NomCatMag" />
                         <p><b>@magasin.NomCatMag</b></p>
-                    </div>
+                    </li>
                 }
             </ul>
         </div>
@@ -45,32 +46,27 @@
 
     <div class="text-center">
         <ul class="article-item-collection-view">
-            @foreach (var articles in Model.Articles)
+            @foreach (var article in Model.Articles)
             {
-                
-                <div class="articles-item">
-                    
-                        <img class="img-item" src="@articles.Img1" />
-                        <p class="articles-name"><b>@articles.Nom</b></p>
-                        <p class="articles-details">@articles.Details</p>
-                        <p class="articles-prix">@articles.Prix XAF</p>
-                        <form asp-controller="Cart" asp-action="AddToCart" method="post">
-                            <input type="hidden" name="productId" value="@articles.Id" />
-                            <input type="hidden" name="productName" value="@articles.Nom" />
-                            <input type="hidden" name="price" value="@articles.Prix" />
-                        <input type="number" name="quantity" value="1" />
-                        <button type="submit" class="btn-add-articles">ajouter au panier</button>
-                        </form>
-                        
-                        <a asp-controller="Product" asp-action="DetaisProduct" href="/DetailsProduct">Details</a>
-                    
-                </div>
-            }            
+                <li class="articles-item">
+                    <img class="img-item" src="@article.Img1" alt="@article.Nom" />
+                    <p class="articles-name"><b>@article.Nom</b></p>
+                    <p class="articles-details">@article.Details</p>
+                    <p class="articles-prix">@article.Prix XAF</p>
+                    <form asp-controller="Views/Cart" asp-action="AddToCart" method="post">
+                        <input type="hidden" name="productId" value="@article.Id" />
+                        <input type="hidden" name="productName" value="@article.Nom" />
+                        <input type="hidden" name="price" value="@article.Prix" />
+                        <input type="hidden" name="quantity" value="1" />
+                        <button type="submit" class="btn-add-articles">Ajouter au panier</button>
+                    </form>
+                    <a href="@Url.Action("DetailsProduct", "Product")">Details</a>
+                </li>
+            }
         </ul>
         <a href="/ArticlesDisponibles">Voir plus de produits</a>
-    </div>    
+    </div>
 </div>
-
 
 <div id="newsletterDialog" style="display: none;">
     <button class="btn closeDialog" id="closeDialog">&times;</button>
@@ -81,7 +77,8 @@
     </form>
 </div>
 
-@section scripts {
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function () {
             setTimeout(function () {
