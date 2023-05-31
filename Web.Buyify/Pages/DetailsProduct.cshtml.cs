@@ -1,11 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Web.Buyify.Pages.Shared
+namespace Web.Buyify.Pages
 {
-    public class _NewsletterPopupModel : PageModel
+    public class DetailsProductModel : PageModel
     {
-        [HttpGet]
         public void OnGet()
         {
         }

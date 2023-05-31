@@ -1,6 +1,9 @@
 ﻿@page
-@model Web.Buyify.Pages.PanierModel
-@{    
+
+@model List<CartItem>
+
+@{
+    
 }
 
 
@@ -36,6 +39,47 @@
       <div>
             <img src="https://m.media-amazon.com/images/G/08/cart/empty/kettle-desaturated._CB424694058_.svg" />
       </div>
+  </div>
+
+  <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Produit</th>
+                    <th>Prix</th>
+                    <th>Quantité</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.ProductName</td>
+                        <td>@item.Price</td>
+                        <td>
+                            <form asp-controller="Cart" asp-action="UpdateCartItem" method="post">
+                                <input type="hidden" name="productId" value="@item.ProductId" />
+                                <input type="number" name="quantity" value="@item.Quantity" />
+                                <button type="submit">Mettre à jour</button>
+                            </form>
+                        </td>
+                        <td>@(item.Price * item.Quantity)</td>
+                        <td>
+                            <form asp-controller="Cart" asp-action="RemoveFromCart" method="post">
+                                <input type="hidden" name="productId" value="@item.ProductId" />
+                                <button type="submit">Supprimer</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <form asp-controller="Cart" asp-action="ClearCart" method="post">
+            <button type="submit">Vider le panier</button>
+        </form>
   </div>
 </body>
 

@@ -52,6 +52,11 @@ namespace Web.Buyify
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+                endpoints.MapControllerRoute(
+                    name: "newsletterDialog",
+                    pattern: "newsletter/dialog",
+                    defaults: new { controller = "YourControllerName", action = "NewsletterDialog" });
+
                 endpoints.MapRazorPages();
             });
         }

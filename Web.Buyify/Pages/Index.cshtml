@@ -54,8 +54,15 @@
                         <p class="articles-name"><b>@articles.Nom</b></p>
                         <p class="articles-details">@articles.Details</p>
                         <p class="articles-prix">@articles.Prix XAF</p>
-                        <button class="btn-add-articles">ajouter au panier</button>
-                        <a href="/ArticlesDisponibles">Details</a>
+                        <form asp-controller="Cart" asp-action="AddToCart" method="post">
+                            <input type="hidden" name="productId" value="@articles.Id" />
+                            <input type="hidden" name="productName" value="@articles.Nom" />
+                            <input type="hidden" name="price" value="@articles.Prix" />
+                        <input type="number" name="quantity" value="1" />
+                        <button type="submit" class="btn-add-articles">ajouter au panier</button>
+                        </form>
+                        
+                        <a asp-controller="Product" asp-action="DetaisProduct" href="/DetailsProduct">Details</a>
                     
                 </div>
             }            
@@ -63,3 +70,27 @@
         <a href="/ArticlesDisponibles">Voir plus de produits</a>
     </div>    
 </div>
+
+
+<div id="newsletterDialog" style="display: none;">
+    <button class="btn closeDialog" id="closeDialog">&times;</button>
+    <h2>Inscrivez-vous à notre newsletter</h2>
+    <form asp-action="Subscribe" method="post">
+        <input type="email" name="email" placeholder="Votre adresse e-mail" required />
+        <button class="btn-add-articles" type="submit">S'abonner</button>
+    </form>
+</div>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            setTimeout(function () {
+                $('#newsletterDialog').show();
+            }, 15000);
+
+            $('#closeDialog').click(function () {
+                $('#newsletterDialog').hide();
+            });
+        });
+    </script>
+}

@@ -28,5 +28,15 @@ namespace Web.Buyify.Pages
             }
             
         }
+
+        public IActionResult NewsletterDialog()
+        {
+            return PartialView("NewsletterDialog");
+        }
+
+        private IActionResult PartialView(string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
