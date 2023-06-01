@@ -6,15 +6,24 @@ namespace Web.Buyify.Controllers
     public class CartController : Controller
     {
         private readonly Cart _cart;
+        private readonly AppDbContext _dbContext;
 
-        public CartController()
+        public CartController(AppDbContext dbContext)
         {
             _cart = new Cart();
+            _dbContext = dbContext;
         }
 
-        public IActionResult Details()
+        public IActionResult Details(int id)
         {
-            return View("DetailsProduct", _cart.Items);
+            var product = _dbContext.Articles.FirstOrDefault(p => p.Id == id);
+
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            return View("Details", product);
         }
 
         public IActionResult AddToCart(int productId, string productName, decimal price, int quantity)
@@ -52,6 +61,10 @@ namespace Web.Buyify.Controllers
 
             return RedirectToAction("Panier");
         }
-    }
 
+        public IActionResult Panier()
+        {
+            return View(_cart.Items);
+        }
+    }
 }

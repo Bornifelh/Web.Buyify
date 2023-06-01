@@ -19,15 +19,16 @@ namespace Web.Buyify.Controllers
 
         public IActionResult Details(int id)
         {
-            var product = _dbContext.Articles.FirstOrDefault(p => p.Id == id);
+            var article = _dbContext.Articles.FirstOrDefault(a => a.Id == id);
 
-            if (product == null)
+            if (article == null)
             {
                 return NotFound();
             }
 
-            return View(product);
+            return View(article);
         }
+
 
     }
 

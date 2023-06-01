@@ -1,0 +1,29 @@
+﻿@model Web.Buyify.Models.Article
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Détails de l'article";
+}
+
+<div class="text-center">
+
+
+            <div class="article-item-collection-view1">
+
+
+            <h1>@Model.Nom</h1>
+            <img src="@Model.Img1" />
+            <p class="">@Model.Details</p>
+            <p><b>Prix : @Model.Prix XAF</b></p>
+
+            <form asp-controller="Cart" asp-action="AddToCart" method="post">
+                <input type="hidden" name="productId" value="@Model.Id" />
+                <input type="hidden" name="productName" value="@Model.Nom" />
+                <input type="hidden" name="price" value="@Model.Prix" />
+                <input type="number" name="quantity" value="1" /><br /><br />
+                <button type="submit" class="btn btn-primary">Ajouter au panier</button><br />
+            </form>
+            <br />
+            <a href="/Index">Retour à la liste des articles</a>
+            </div>
+</div>

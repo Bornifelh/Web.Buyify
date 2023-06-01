@@ -5,31 +5,25 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Primitives;
+using Web.Buyify.Models;
 
 namespace Web.Buyify
 {
-    public class Startup : IConfigurationRoot
+    public class Startup
     {
         private readonly IConfiguration _configuration;
-
-        public IEnumerable<IConfigurationProvider> Providers => throw new NotImplementedException();
-
-        public string? this[string key] { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public Startup(IConfiguration configuration)
         {
             _configuration = configuration;
         }
 
-        [Obsolete]
         public void ConfigureServices(IServiceCollection services)
         {
-            // Configuration des services, y compris la configuration de la base de données
-            _ = services.AddDbContext<AppDbContext>(options =>
+            services.AddDbContext<AppDbContext>(options =>
                 options.UseMySQL(_configuration.GetConnectionString("DefaultConnection")));
 
-            _ = services.AddControllersWithViews();
+            services.AddControllersWithViews();
             services.AddRazorPages().AddRazorPagesOptions(options =>
             {
                 options.RootDirectory = "/Pages";
@@ -63,32 +57,22 @@ namespace Web.Buyify
                     pattern: "{controller=Home}/{action=Index}/{id?}");
 
                 endpoints.MapControllerRoute(
+                    name: "cart",
+                    pattern: "Views/Cart/Panier/{id?}",
+                    defaults: new { controller = "Cart", action = "AddToCart" });
+
+                endpoints.MapControllerRoute(
+                    name: "product",
+                    pattern: "Product/Details/{id}",
+                    defaults: new { controller = "Product", action = "Details" });
+
+                endpoints.MapControllerRoute(
                     name: "newsletterDialog",
                     pattern: "newsletter/dialog",
                     defaults: new { controller = "YourControllerName", action = "NewsletterDialog" });
 
                 endpoints.MapRazorPages();
             });
-        }
-
-        public void Reload()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IConfigurationSection GetSection(string key)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<IConfigurationSection> GetChildren()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IChangeToken GetReloadToken()
-        {
-            throw new NotImplementedException();
         }
     }
 }

@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Web.Buyify.Views.Product
+namespace Web.Buyify.Views.Cart
 {
-    public class DetailsProductModel : PageModel
+    public class DetailsModel : PageModel
     {
         public void OnGet()
         {
