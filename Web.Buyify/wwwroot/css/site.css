@@ -526,3 +526,8 @@ body {
     z-index: 9999;
     display: none;
 }
+
+
+.img-backgound-panier{
+    height : 80px;
+}

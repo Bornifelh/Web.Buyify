@@ -17,6 +17,7 @@ namespace Web.Buyify
         public DbSet<UserCustomer> UsersCustomers { get; set; }
         public DbSet<Category> Category { get; set; }
         public DbSet<CategoryMag> CategoryMag { get; set; }
-        public DbSet<Magasin> Magasins { get; set; }
+        public DbSet<Magasin> Magasin { get; set; }
+        public DbSet<CartItem> CartItems { get; set; }
     }
 }
