@@ -12,21 +12,15 @@ namespace Web.Buyify.Pages
             _context = context; 
         }
 
+
+
         public List<Article>? Articles { get; set; }
         public List<CategoryMag>? CategoryMag { get;set; }
 
         public void OnGet()
         {
-            try
-            {
-                 Articles = _context?.Articles.ToList();
-                 CategoryMag = _context?.CategoryMag.ToList();
-            }
-            catch (Exception ex) 
-            {
-                _ = new Exception(ex.Message);
-            }
-            
+            Articles = _context?.Articles.ToList();
+          CategoryMag = _context?.CategoryMag.ToList();            
         }
 
         public IActionResult NewsletterDialog()
