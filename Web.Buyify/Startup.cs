@@ -1,11 +1,6 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Web.Buyify.Models;
+using Web.Buyify.Controllers;
 
 namespace Web.Buyify
 {
@@ -18,20 +13,29 @@ namespace Web.Buyify
             _configuration = configuration;
         }
 
+        [Obsolete]
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSession();
             services.AddDbContext<AppDbContext>(options =>
                 options.UseMySQL(_configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             services.AddControllersWithViews();
             services.AddRazorPages().AddRazorPagesOptions(options =>
             {
                 options.RootDirectory = "/Pages";
             }).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+
+            services.AddDistributedMemoryCache();
+            services.AddHttpContextAccessor();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseSession();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -57,11 +61,6 @@ namespace Web.Buyify
                     pattern: "{controller=Home}/{action=Index}/{id?}");
 
                 endpoints.MapControllerRoute(
-                    name: "cart",
-                    pattern: "Views/Cart/Panier/{id?}",
-                    defaults: new { controller = "Cart", action = "AddToCart" });
-
-                endpoints.MapControllerRoute(
                     name: "product",
                     pattern: "Product/Details/{id}",
                     defaults: new { controller = "Product", action = "Details" });
@@ -74,5 +73,6 @@ namespace Web.Buyify
                 endpoints.MapRazorPages();
             });
         }
+
     }
 }

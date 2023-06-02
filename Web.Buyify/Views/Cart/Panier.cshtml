@@ -8,6 +8,7 @@
 <html lang="fr">
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="~/css/panier.css" asp-append-version="true" />
     <title>Panier</title>
 </head>
 <body>
@@ -34,45 +35,54 @@
         </div>
     </div>
 
-    <div class="text-center">
-        <table class="catmag-item-collection-view1">
-            <thead>
-                <tr>
-                    <th>Produit</th>
-                    <th>Prix</th>
-                    <th>Quantité</th>
-                    <th>Total</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
+
+    <div class="row">
+            
                 @foreach (var item in Model)
                 {
-                    <tr>
-                        <td>@item.ProductName</td>
-                        <td>@item.Price</td>
-                        <td>
+                <div class="item">
+                <div class="item-image img">
+                        <img src="@item.Img"/>
+                    </div>
+
+                    <div class="produit">
+                    <p><b>@item.ProductName</b></p>
+                        <p>@item.ProductDetails</p>
+                        
+                    </div>
+                    <div>
+                    
+                    </div>
+                        <div>
                             <form asp-controller="Cart" asp-action="UpdateCartItem" method="post">
                                 <input type="hidden" name="productId" value="@item.ProductId" />
-                                <input type="number" name="quantity" value="@item.Quantity" />
+                                <input class="input-group-text" type="number" name="quantity" value="@item.Quantity" />
                                 <button type="submit">Mettre à jour</button>
                             </form>
-                        </td>
-                        <td>@(item.Price * item.Quantity)</td>
-                        <td>
+                        </div>
+                <div class="div-supp-panier">
+                                <p class="prix-panier">@item.Price F CFA</p>
+                    <p class="total-panier"><b>@(item.Price * item.Quantity) F CFA</b></p>
+                        </div>
+                        
+                        <div class="div-supp-panier">
                             <form asp-controller="Cart" asp-action="RemoveFromCart" method="post">
                                 <input type="hidden" name="productId" value="@item.ProductId" />
-                                <button class="btn-add-articles"  type="submit">Supprimer</button>
+                                <button class="add-panier btn-add-articles"  type="submit">Supprimer</button>
                             </form>
-                        </td>
-                    </tr>
+                        </div>
+                    </div>
                 }
-            </tbody>
-        </table>
+        </div>
+
+
+       
+
+
 
         <form asp-controller="Cart" asp-action="ClearCart" method="post">
             <button type="submit">Vider le panier</button>
         </form>
-    </div>
+        </div>
 </body>
 </html>

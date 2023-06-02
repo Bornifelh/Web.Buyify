@@ -1,0 +1,64 @@
+﻿.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col-md-4 {
+    width: 33.33%;
+    padding: 10px;
+}
+
+.item {
+    -webkit-text-size-adjust: 100%;
+    font-size: 14px;
+    line-height: 10px;
+    color: #0F1111;
+    font-family: "Amazon Ember", Arial, sans-serif;
+    box-sizing: content-box;
+    overflow: hidden;
+    padding-top: 10px;
+    position: relative;
+    padding-bottom: 10px;
+    display : flex;
+    border-block-start : solid;
+}
+
+
+.item-image img {
+    width: 300px;
+    height: 120px;
+    object-fit : contain;
+}
+
+.item-details h4 {
+    margin-top: 0;
+}
+
+.item-price p {
+    margin-bottom: 5px;
+}
+
+.produit{
+    position : relative;
+    width : 500px;
+    height : 120px;
+    margin-left : 10px;
+}
+
+.prix-panier{
+    margin-bottom : 90px;
+}
+
+.total-panier{
+    vertical-align : bottom;
+    color : red;
+    width : 200px;
+}
+
+.add-panier{
+}
+
+.div-supp-panier{
+    text-align : match-parent;
+    margin-left : 60px;
+}

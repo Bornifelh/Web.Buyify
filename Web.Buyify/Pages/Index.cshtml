@@ -54,8 +54,10 @@
                     <p class="articles-details">@article.Details</p>
                     <p class="articles-prix">@article.Prix XAF</p>
                     <form asp-controller="Cart" asp-action="AddToCart" method="post">
+                        <input type="hidden" name="Img" value="@article.Img1" />
                         <input type="hidden" name="productId" value="@article.Id" />
                         <input type="hidden" name="productName" value="@article.Nom" />
+                        <input type="hidden" name="productDetails" value="@article.Details" />
                         <input type="hidden" name="price" value="@article.Prix" />
                         <input type="hidden" name="quantity" value="1" />
                         <button type="submit" class="btn-add-articles">Ajouter au panier</button>
