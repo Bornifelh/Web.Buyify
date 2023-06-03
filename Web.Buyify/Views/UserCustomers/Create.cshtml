@@ -4,70 +4,112 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Se connecter</title>
+    <!-- Ajoutez vos balises meta, CSS, scripts, etc. spécifiques à la page de connexion ici -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/catmag.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Web.Buyify.styles.css" asp-append-version="true" />
+    <style>
+        .password-container {
+            position: relative;
+            display: inline-block;
+        }
 
-<h4>UserCustomer</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
+        .input-group .invalid-feedback {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            color: red;
+        }
+
+    </style>
+    <script>
+        function togglePassword() {
+            var passwordInput = document.getElementById('password-input');
+            var passwordToggle = document.getElementById('password-toggle');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                passwordToggle.textContent = 'Hide';
+            } else {
+                passwordInput.type = 'password';
+                passwordToggle.textContent = 'Show';
+            }
+        }
+    </script>
+
+
+    <script>
+        var emailInput = document.getElementById('email-input');
+        var invalidFeedback = document.querySelector('.input-group .invalid-feedback');
+
+        emailInput.addEventListener('input', function () {
+            if (emailInput.validity.valid) {
+                invalidFeedback.style.display = 'none';
+            } else {
+                invalidFeedback.style.display = 'block';
+            }
+        });
+    </script>
+
+
+</head>
+<body>
+    <div class="text-center">
+        <div class="article-item-collection-view1">
+            <div class="formulaire-login2">
+                <form class="oe_login_form o_odoo_enterprise_sign" asp-action="Create" role="form" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Utilisateur" class="control-label"></label>
-                <input asp-for="Utilisateur" class="form-control" />
-                <span asp-validation-for="Utilisateur" class="text-danger"></span>
+                    <a href="/Index"><img class="size-img-login-register" src="/Images/compte.png" /></a>
+                    <h1 class="login-title-register">SIGN UP</h1>
+             <div class="input-group">
+                        <input placeholder="exd: derly241" asp-for="Utilisateur" class="form-control" required="required" />
             </div>
-            <div class="form-group">
-                <label asp-for="Pass" class="control-label"></label>
-                <input asp-for="Pass" class="form-control" />
-                <span asp-validation-for="Pass" class="text-danger"></span>
+            <div class="input-group">
+                        <input placeholder="ex: Derly MOUPEPIDI" asp-for="Nom" class="form-control" required="required" />
             </div>
-            <div class="form-group">
-                <label asp-for="Nom" class="control-label"></label>
-                <input asp-for="Nom" class="form-control" />
-                <span asp-validation-for="Nom" class="text-danger"></span>
+
+             <div class="input-group">
+                        <input placeholder="ex: moupepidid@gmail.com" asp-for="Mail" class="form-control" required="required" />
+             </div>
+                    <div class="input-group">
+                        <input type="password" id="password-input" name="password" class="form-control" placeholder="Mot de passe" required="required"  />
+
+
+                        <button class="btn btn-secondary" type="submit" onclick="togglePassword()" id="password-toggle">
+                            <i class="fa fa-eye">Show</i>
+                        </button>
+                    </div>
+
+            <div class="input-group">
+                <div class="clearfix oe_login_buttons1 text-center gap-1 d-grid mb-1 pt-3">
+                    <button type="submit" value="Create" class="btn btn-primary">Créer</button>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Mail" class="control-label"></label>
-                <input asp-for="Mail" class="form-control" />
-                <span asp-validation-for="Mail" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Phone" class="control-label"></label>
-                <input asp-for="Phone" class="form-control" />
-                <span asp-validation-for="Phone" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Adresse" class="control-label"></label>
-                <input asp-for="Adresse" class="form-control" />
-                <span asp-validation-for="Adresse" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Ville" class="control-label"></label>
-                <input asp-for="Ville" class="form-control" />
-                <span asp-validation-for="Ville" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Province" class="control-label"></label>
-                <input asp-for="Province" class="form-control" />
-                <span asp-validation-for="Province" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Nationalite" class="control-label"></label>
-                <input asp-for="Nationalite" class="form-control" />
-                <span asp-validation-for="Nationalite" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
+
+                    <div class="input-group">
+                        <div class="clearfix oe_login_buttons1 text-center gap-1 d-grid mb-1 pt-3">
+                            <a href="/Login" class="btn btn-primary color-btn1">
+                                J'ai déjà un compte
+                            </a>
+                        </div>
+
+                        <label class="lbl-privacy-register" margin-top="15px">Nous traiterons vos données personnelles comme décrit dans notre <a href="/Privacy">politique de confidentialité</a>.</label>
+                    </div>
         </form>
+    </div>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
+</body>
+</html>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
