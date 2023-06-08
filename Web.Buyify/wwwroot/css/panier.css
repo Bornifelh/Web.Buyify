@@ -11,7 +11,6 @@
 .item {
     -webkit-text-size-adjust: 100%;
     font-size: 14px;
-    line-height: 10px;
     color: #0F1111;
     font-family: "Amazon Ember", Arial, sans-serif;
     box-sizing: content-box;
@@ -28,6 +27,7 @@
     width: 300px;
     height: 120px;
     object-fit : contain;
+    border-radius : 10px;
 }
 
 .item-details h4 {
@@ -62,3 +62,4 @@
     text-align : match-parent;
     margin-left : 60px;
 }
+

@@ -465,6 +465,26 @@ body {
 
 
 
+
+/*Panier debut*/
+.articles-details-panier {
+    line-height: 1.5;
+    text-align: match-parent;
+    display: -webkit-box;
+    -webkit-line-clamp: 9; /* Limite à 2 lignes */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.nbr-counter-item-panier {
+    width: 40px;
+}
+
+
+
+
+
+
 /*Partie reservé au popup dialog newsletter*/
 #newsletterDialog {
     background-color: #f1f1f1;

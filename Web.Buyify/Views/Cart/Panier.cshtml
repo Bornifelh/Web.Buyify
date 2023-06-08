@@ -9,6 +9,7 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="~/css/panier.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <title>Panier</title>
 </head>
 <body>
@@ -29,49 +30,43 @@
         </div>
     </div>
 
-    <div class="text-center">
-        <div>
-            <img class="img-backgound-panier" src="https://m.media-amazon.com/images/G/08/cart/empty/kettle-desaturated._CB424694058_.svg" />
-        </div>
-    </div>
 
-
-    <div class="row">
+    <div class="">
             
                 @foreach (var item in Model)
                 {
-                <div class="item">
-                <div class="item-image img">
-                        <img src="@item.Img"/>
-                    </div>
+                    <div class="item">
+                    <div class="item-image img">
+                            <img src="@item.Img"/>
+                        </div>
 
                     <div class="produit">
-                    <p><b>@item.ProductName</b></p>
-                        <p>@item.ProductDetails</p>
+                        <p><b>@item.ProductName</b></p>
+                            <p class="item-details">@item.ProductDetails</p>
                         
-                    </div>
-                    <div>
-                    
-                    </div>
+                        </div>
                         <div>
-                            <form asp-controller="Cart" asp-action="UpdateCartItem" method="post">
-                                <input type="hidden" name="productId" value="@item.ProductId" />
-                                <input class="input-group-text" type="number" name="quantity" value="@item.Quantity" />
-                                <button type="submit">Mettre à jour</button>
-                            </form>
+                    
                         </div>
-                <div class="div-supp-panier">
-                                <p class="prix-panier">@item.Price F CFA</p>
-                    <p class="total-panier"><b>@(item.Price * item.Quantity) F CFA</b></p>
-                        </div>
+                            <div>
+                                <form asp-controller="Cart" asp-action="UpdateCartItem" method="post">
+                                    <input type="hidden" name="productId" value="@item.ProductId" />
+                                    <input class="nbr-counter-item-panier" type="number" name="quantity" value="@item.Quantity" />
+                                   <!-- <button type="submit">Mettre à jour</button> -->
+                                </form>
+                            </div>
+                    <div class="div-supp-panier">
+                                    <p class="prix-panier">@item.Price F CFA</p>
+                        <p class="total-panier"><b>@(item.Price * item.Quantity) F CFA</b></p>
+                            </div>
                         
-                        <div class="div-supp-panier">
-                            <form asp-controller="Cart" asp-action="RemoveFromCart" method="post">
-                                <input type="hidden" name="productId" value="@item.ProductId" />
-                                <button class="add-panier btn-add-articles"  type="submit">Supprimer</button>
-                            </form>
+                            <div class="div-supp-panier">
+                                <form asp-controller="Cart" asp-action="RemoveFromCart" method="post">
+                                    <input type="hidden" name="productId" value="@item.ProductId" />
+                                    <button class="add-panier btn-add-articles"  type="submit">Supprimer</button>
+                                </form>
+                            </div>
                         </div>
-                    </div>
                 }
         </div>
 
@@ -81,7 +76,7 @@
 
 
         <form asp-controller="Cart" asp-action="ClearCart" method="post">
-            <button type="submit">Vider le panier</button>
+            <button class="btn btn-add-articles" type="submit">Vider le panier</button>
         </form>
         </div>
 </body>
