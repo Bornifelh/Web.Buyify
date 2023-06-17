@@ -36,10 +36,10 @@
 
             if (passwordInput.type === 'password') {
                 passwordInput.type = 'text';
-                passwordToggle.textContent = 'Hide';
+                passwordToggle.textContent = 'Cacher';
             } else {
                 passwordInput.type = 'password';
-                passwordToggle.textContent = 'Show';
+                passwordToggle.textContent = 'Voir';
             }
         }
     </script>
@@ -79,8 +79,8 @@
                     <input type="password" id="password-input" name="password" class="form-control" required="required" placeholder="Mot de passe"/>
                    
 
-                    <button  class="btn btn-secondary" onclick="togglePassword()" id="password-toggle">
-                        <i class="fa fa-eye">Show</i>
+                    <button  class="btn btn-secondary" type="button" onclick="togglePassword()" id="password-toggle">
+                        <i class="fa fa-eye">Voir</i>
                     </button>
                 </div>
                 

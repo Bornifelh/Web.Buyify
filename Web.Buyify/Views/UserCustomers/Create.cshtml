@@ -8,7 +8,6 @@
 <html>
 <head>
     <title>Se connecter</title>
-    <!-- Ajoutez vos balises meta, CSS, scripts, etc. spécifiques à la page de connexion ici -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
@@ -68,9 +67,9 @@
                 <form class="oe_login_form o_odoo_enterprise_sign" asp-action="Create" role="form" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <a href="/Index"><img class="size-img-login-register" src="/Images/compte.png" /></a>
-                    <h1 class="login-title-register">SIGN UP</h1>
+                    <h1 class="login-title-register">Nouveau compte</h1>
              <div class="input-group">
-                        <input placeholder="exd: derly241" asp-for="Utilisateur" class="form-control" required="required" />
+                        <input placeholder="ex: derly241" asp-for="Utilisateur" class="form-control" required="required" />
             </div>
             <div class="input-group">
                         <input placeholder="ex: Derly MOUPEPIDI" asp-for="Nom" class="form-control" required="required" />
@@ -96,7 +95,7 @@
 
                     <div class="input-group">
                         <div class="clearfix oe_login_buttons1 text-center gap-1 d-grid mb-1 pt-3">
-                            <a href="/Login" class="btn btn-primary color-btn1">
+                            <a href="/UserCustomers/Login" class="btn btn-primary color-btn1">
                                 J'ai déjà un compte
                             </a>
                         </div>
