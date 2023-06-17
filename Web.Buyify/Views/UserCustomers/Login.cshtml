@@ -1,4 +1,4 @@
-﻿@page
+﻿@model Web.Buyify.Models.UserCustomer
 @{
     Layout = "";
 }
@@ -36,10 +36,10 @@
 
             if (passwordInput.type === 'password') {
                 passwordInput.type = 'text';
-                passwordToggle.textContent = 'Hide';
+                passwordToggle.textContent = 'Caher';
             } else {
                 passwordInput.type = 'password';
-                passwordToggle.textContent = 'Show';
+                passwordToggle.textContent = 'Voir';
             }
         }
     </script>
@@ -68,7 +68,7 @@
                     <a href="/Index"><img class="size-img-login-register" src="/Images/compte.png" /></a>
                 <h1 class="login-title">CONNEXION</h1>
                 <div class="input-group1 formulaire-login1">
-                    <p class="p-text-login">Accédez à votre boutique en ligne à partir de votre compte Buyify en toutes simplicité.</p>
+                    <p class="p-text-login">Accédez à votre boutique en ligne à partir de votre compte Buyify en toute simplicité.</p>
                 </div>
                 <div class="input-group">
                         <input id="email-input" type="email" class="form-control" placeholder="Courriel" required="required" autofocus="autofocus" autocapitalize="off"/>
@@ -80,8 +80,8 @@
                         Veuillez entrer une adresse e-mail valide.
                     </div>
 
-                    <button  class="btn btn-secondary" type="submit" onclick="togglePassword()" id="password-toggle">
-                        <i class="fa fa-eye">Show</i>
+                    <button  class="btn btn-secondary" type="button" onclick="togglePassword()" id="password-toggle">
+                        <i class="fa fa-eye">Voir</i>
                     </button>
                 </div>
                 
@@ -96,7 +96,7 @@
                 <div class="input-group">
                     <div class="clearfix oe_login_buttons1 text-center gap-1 d-grid mb-1 pt-3">
                             
-                            <a href="/Register" class="btn btn-primary color-btn">
+                            <a href="/UserCustomers/Create" class="btn btn-primary color-btn">
                                     Vous n'avez pas de compte?
                             </a>
                         
