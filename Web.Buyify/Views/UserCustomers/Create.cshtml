@@ -65,33 +65,35 @@
         <div class="article-item-collection-view1">
             <div class="formulaire-login2">
                 <form class="oe_login_form o_odoo_enterprise_sign" asp-action="Create" role="form" method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <a href="/Index"><img class="size-img-login-register" src="/Images/compte.png" /></a>
                     <h1 class="login-title-register">Nouveau compte</h1>
-             <div class="input-group">
-                        <input placeholder="ex: derly241" asp-for="Utilisateur" class="form-control" required="required" />
-            </div>
-            <div class="input-group">
-                        <input placeholder="ex: Derly MOUPEPIDI" asp-for="Nom" class="form-control" required="required" />
-            </div>
 
-             <div class="input-group">
-                        <input placeholder="ex: moupepidid@gmail.com" asp-for="Mail" class="form-control" required="required" />
-             </div>
                     <div class="input-group">
-                        <input type="password" id="password-input" name="password" class="form-control" placeholder="Mot de passe" required="required"  />
+                        <input placeholder="ex: derly241" asp-for="Utilisateur" class="form-control" required="required" />
+                    </div>
 
+                    <div class="input-group">
+                        <input placeholder="ex: Derly MOUPEPIDI" asp-for="Nom" class="form-control" required="required" />
+                    </div>
+
+                    <div class="input-group">
+                        <input placeholder="ex: moupepidid@gmail.com" asp-for="Mail" class="form-control" required="required" />
+                    </div>
+
+                    <div class="input-group">
+                        <input type="password" id="password-input" name="password" class="form-control" placeholder="Mot de passe" required="required" />
 
                         <button class="btn btn-secondary" type="button" onclick="togglePassword()" id="password-toggle">
                             <i class="fa fa-eye">Voir</i>
                         </button>
                     </div>
 
-            <div class="input-group">
-                <div class="clearfix oe_login_buttons1 text-center gap-1 d-grid mb-1 pt-3">
-                    <button type="submit" value="Create" class="btn btn-primary">Créer</button>
-                </div>
-            </div>
+                    <div class="input-group">
+                        <div class="clearfix oe_login_buttons1 text-center gap-1 d-grid mb-1 pt-3">
+                            <button type="submit" class="btn btn-primary">Créer</button>
+                        </div>
+                    </div>
 
                     <div class="input-group">
                         <div class="clearfix oe_login_buttons1 text-center gap-1 d-grid mb-1 pt-3">
@@ -102,7 +104,8 @@
 
                         <label class="lbl-privacy-register" margin-top="15px">Nous traiterons vos données personnelles comme décrit dans notre <a href="/Privacy">politique de confidentialité</a>.</label>
                     </div>
-        </form>
+                </form>
+
     </div>
     </div>
 </div>

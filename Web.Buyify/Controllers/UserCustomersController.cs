@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Web.Buyify;
 using Web.Buyify.Models;
+using Web.Buyify.UserCustomers;
 
 namespace Web.Buyify.Controllers
 {
